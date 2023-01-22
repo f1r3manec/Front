@@ -8,7 +8,6 @@ export const endPoints = {
     EliminarProducto: 'Productos/EliminarProducto',
     AgregarPresentacionProducto: 'Productos/AgregarPresentacionProducto',
     ActivarProducto: 'Productos/ActivarProducto',
-
 }
 export const metodosPeticion = {
 	POST: 'POST',
@@ -17,3 +16,7 @@ export const metodosPeticion = {
 	UPDATE: 'UPDATE',
 	GET: 'GET',
 };
+
+export const uri={
+	idPaciente:'idProducto'
+}

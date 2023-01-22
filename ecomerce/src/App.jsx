@@ -3,6 +3,7 @@ import Layout from "@/components/ui/Layaout";
 import Product from "@/pages/Product";
 import ConsultaProductos from "@/pages/ConsultaProductos";
 import "bulma/css/bulma.min.css";
+import Swal from "sweetalert2";
 
 const App = () => {
   return (

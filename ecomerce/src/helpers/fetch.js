@@ -13,15 +13,12 @@ export const fetchAplicacion = (endpoint, data, method = metodosPeticion.GET.toS
 		});
 	} else if (method === metodosPeticion.DELETE || method === metodosPeticion.PUT) {
 		const urlD = `${baseUrl}${endpoint}?${uri}=${data}`;
-		console.log(urlD);
 		return fetch(urlD, {
 			method,
-			
 		});
 	} else {
 		return fetch(url, {
 			method,
-			
 			body: JSON.stringify(data),
 		});
 	}

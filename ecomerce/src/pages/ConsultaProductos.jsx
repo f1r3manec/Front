@@ -1,18 +1,38 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { endPoints } from "@/assets/constantes";
-import { useEffect, useState } from "react";
-import { peticiones } from "@/helpers/peticiones";
-const ConsultaProductos = () => {
-  const [data, setData] = useState([]);
+import TableBody from "@/components/ui/TableBody";
+import { useProducto } from "@/hooks/useProducto";
 
+const ConsultaProductos = () => {
+  const { peticiones, isLoading, listaProductos } = useProducto();
   useEffect(() => {
-    setData(peticiones(endPoints.ConsultarProductos));
+    peticiones(endPoints.ConsultarProductos);
   }, []);
 
+  if (isLoading) return <h2>No existen productos</h2>;
+
   return (
-    <div>
-      <h1>asdasd</h1>
-    </div>
+    <table className="table is-striped is-narrow is-fullwidth">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nombre Producto</th>
+          <th>Decripción Producto</th>
+          <th>Categoría</th>
+          <th>Presentación</th>
+          <th>Costo Producto</th>
+          <th>IVA</th>
+          <th>Margen Ganancia</th>
+          <th>Stock Actual</th>
+          <th>Activo</th>
+        </tr>
+      </thead>
+      <tbody>
+        {listaProductos.map((producto) => (
+          <TableBody key={Date.now + Math.random()} {...producto} />
+        ))}
+      </tbody>
+    </table>
   );
 };
 export default ConsultaProductos;

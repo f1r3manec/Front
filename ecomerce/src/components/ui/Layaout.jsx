@@ -9,8 +9,8 @@ const Layout = () => {
       </div>
       <div className="row">
         <div className="columns is-desktop is-mobile">
-          <div className="column is-12 ">
-            <div className="container">
+          <div className="column is-12  ">
+            <div className="box">
               <Outlet />
             </div>
           </div>
