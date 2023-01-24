@@ -3,13 +3,13 @@ import {fetchAplicacion} from'@/helpers/fetch';
 import {decodeResponse} from "@/helpers/decodeAnswerequest";
 import {DataContext} from '@/context/ContextProvider'
 import {metodosPeticion,endPoints,uri} from '@/assets/constantes'
+import { mensajeErrorPeticion } from "@/helpers/messages";
 export const useProducto = () => {
   
   const {stateApp,setStateApp} = useContext(DataContext)
   const [data, setData] = useState(null);
   const [listaProductos, setListaProductos] = useState(null)
   const [isLoading, setIsLoading] = useState(true);
-  
 
 
   const peticiones = async (endPonint) => {
@@ -59,11 +59,19 @@ export const useProducto = () => {
   const getProductoActivo=()=>{
     return stateApp.producto
   }
+
+  const guardarProducto=async (producto)=>{
+    const res= await fetchAplicacion(endPoints.AgregarProducto,producto,metodosPeticion.POST )
+    return decodeResponse(await res.json())
+  }
+  const eliminarProductoActico=()=>{
+    setStateApp({...stateApp, producto:null})
+  }
   
   
-  return { peticiones, isLoading, listaProductos,seleccionarProductoActivo,eliminarProducto,getProductoActivo };
-
-
+  return { peticiones, isLoading, listaProductos,
+          seleccionarProductoActivo,eliminarProducto,
+          getProductoActivo,guardarProducto,eliminarProductoActico };
 };
 
 
