@@ -19,6 +19,10 @@ export const fetchAplicacion = (endpoint, data, method = metodosPeticion.GET.toS
 	} else {
 		return fetch(url, {
 			method,
+			headers: {
+				'Content-type': 'application/json',
+			
+			},
 			body: JSON.stringify(data),
 		});
 	}

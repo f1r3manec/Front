@@ -28,13 +28,13 @@ const Nav = () => {
                 Agregar
               </NavLink>
               <NavLink className="navbar-item" to="/consulta">
-                Presentaciones
+                Lista Productos
               </NavLink>
-              <NavLink className="navbar-item" href="categorias">
+              <NavLink className="navbar-item" href="/categorias">
                 Categorías
               </NavLink>
-              <NavLink className="navbar-item" href="categorias">
-                Lista
+              <NavLink className="navbar-item" href="/presentaciones">
+                Presentaciones
               </NavLink>
             </div>
           </div>
